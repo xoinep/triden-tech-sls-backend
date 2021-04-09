@@ -1,0 +1,19 @@
+version: "3"
+volumes:
+  slsMongo:
+  slsRedis:
+services:
+  db:
+    image: mongo:latest
+    volumes:
+      - slsMongo:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - slsRedis:/data
+    ports:
+      - 6379:6379
+    restart: unless-stopped
