@@ -21,7 +21,7 @@ custom:
 
 functions:
   create-user:
-    handler: api/v1/create-user.handler
+    handler: api/v1/endpoints/users/create-user.handler
     description: POST /api/v1/users
     events:
       - http:
@@ -32,7 +32,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   get-users:
-    handler: api/v1/get-users.handler
+    handler: api/v1/endpoints/users/get-users.handler
     description: GET /api/v1/users
     events:
       - http:
@@ -43,7 +43,7 @@ functions:
             headers: ${self:custom.allowedHeaders}  
 
   get-user:
-    handler: api/v1/get-user.handler
+    handler: api/v1/endpoints/users/get-user.handler
     description: GET /api/v1/users/{userId}
     events:
       - http:
@@ -58,7 +58,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   update-user:
-    handler: api/v1/update-user.handler
+    handler: api/v1/endpoints/users/update-user.handler
     description: PUT /api/v1/users/{userId}
     events:
       - http:
@@ -73,7 +73,7 @@ functions:
             headers: ${self:custom.allowedHeaders}
 
   delete-user:
-    handler: api/v1/delete-user.handler
+    handler: api/v1/endpoints/users/delete-user.handler
     description: DELETE /api/v1/users/{userId}
     events:
       - http:

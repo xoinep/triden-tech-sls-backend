@@ -1,14 +1,14 @@
 /**
  * Route: PUT /api/v1/user
  */
-const mongoose = require('mongoose');
-const moment = require('moment');
-const User = require('./models/User');
-const util = require('./utils');
-const { clearHash } = require('./services/cache');
-const { connectDB } = require('../../config/db');
+const mongoose = require("mongoose");
+const moment = require("moment");
+const User = require("../../models/User");
+const util = require("../../utils");
+const { clearHash } = require("../../services/cache");
+const { connectDB } = require("../../../../config/db");
 
-('use strict');
+("use strict");
 
 module.exports.handler = async (event) => {
   try {
@@ -16,7 +16,6 @@ module.exports.handler = async (event) => {
     const userProps = JSON.parse(event.body);
 
     const response = await connectDB().then(async () => {
-
       await User.findByIdAndUpdate(
         { _id: userId },
         { ...userProps, updatedAt: moment().toISOString() }
@@ -35,17 +34,16 @@ module.exports.handler = async (event) => {
     clearHash(userId);
     mongoose.connection.close();
 
-    return response;    
-
+    return response;
   } catch (err) {
-    console.log('Encountered an error:', err);
+    console.log("Encountered an error:", err);
 
     return {
       statusCode: err.statusCode ? err.statusCode : 500,
       headers: util.getResponseHeaders(),
       body: JSON.stringify({
-        error: err.name ? err.name : 'Exception',
-        message: err.message ? err.message : 'Unknown error',
+        error: err.name ? err.name : "Exception",
+        message: err.message ? err.message : "Unknown error",
       }),
     };
   }
