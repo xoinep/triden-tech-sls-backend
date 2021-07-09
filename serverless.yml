@@ -86,3 +86,14 @@ functions:
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
+        
+  fb-get-url:
+    handler: api/v1/endpoints/facebook/fb-get-url.handler
+    description: POST /api/v1/facebook/fb-get-url
+    events:
+      - http:
+          path: api/v1/facebook/fb-get-url
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
