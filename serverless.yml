@@ -34,6 +34,17 @@ functions:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
 
+  login-user:
+    handler: api/v1/endpoints/users/login-user.handler
+    description: POST /api/v1/users/login
+    events:
+      - http:
+          path: api/v1/users/login
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
+
   get-users:
     handler: api/v1/endpoints/users/get-users.handler
     description: GET /api/v1/users
