@@ -1,12 +1,15 @@
-service: sls-cms-users
+org: hoangmrb
+app: triden-tech-base
+service: sls-users
 
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-1
+  region: ap-southeast-1
   memorySize: 128
   timeout: 3
-  
+  stage: dev
+
 plugins:
   - serverless-dotenv-plugin
   - serverless-offline

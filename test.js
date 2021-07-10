@@ -1,0 +1,1 @@
+let a = { email: 'hoangmrb@gmail.com', cognitoId: 'C@igithe1' };

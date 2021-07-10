@@ -33,6 +33,9 @@ const UserSchema = new Schema({
   updatedAt: {
     type: String,
   },
+  password: {
+    type: String,
+  }
 });
 
 const User = model("users", UserSchema);
